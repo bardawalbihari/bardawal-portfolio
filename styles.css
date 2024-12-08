@@ -272,11 +272,7 @@ profile-photo .img{
   width: 100%;
   position: relative;
 }
-.education-content .row .timeline-item{
-  position:relative;
-  padding-left: 37px;
-  padding-bottom: 50px; 
-}
+
 .education-content .row  .internship .timeline-item{
   position:relative;
   padding-left: 37px;
