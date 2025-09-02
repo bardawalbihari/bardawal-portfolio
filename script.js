@@ -1,58 +1,50 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
-  // Sticky header
-  $(window).scroll(function() {
+  // Sticky header on scroll
+  $(window).on('scroll', function () {
     if ($(this).scrollTop() > 1) {
       $(".header-area").addClass("sticky");
     } else {
       $(".header-area").removeClass("sticky");
     }
 
-    // Update the active section in the header
     updateActiveSection();
   });
 
-  $(".header ul li a").click(function(e) {
-    e.preventDefault(); 
+  // Smooth scrolling and active class
+  $(".header ul li a").on("click", function (e) {
+    e.preventDefault();
 
     var target = $(this).attr("href");
 
-    // Avoid scrolling if the section is already active
-    if ($(target).hasClass("active-section")) {
-      return; 
-    }
+    if ($(target).hasClass("active-section")) return;
 
-    if (target === "#home") {
-      $("html, body").animate(
-        {
-          scrollTop: 0 
-        },
-        500
-      );
-    } else {
-      var offset = $(target).offset().top - 40; 
+    var offset = (target === "#home") ? 0 : $(target).offset().top - 60;
 
-      $("html, body").animate(
-        {
-          scrollTop: offset
-        },
-        500
-      );
-    }
+    $("html, body").animate({
+      scrollTop: offset
+    }, 500);
 
-    // Update active link class
     $(".header ul li a").removeClass("active");
     $(this).addClass("active");
+
+    // Collapse mobile navbar if open
+    $(".navbar").removeClass("active");
   });
 
-  // Initial content revealing js
+  // Toggle navbar for mobile
+  $(".menu_icon").on("click", function () {
+    $(".navbar").toggleClass("active");
+  });
+
+  // ScrollReveal animations
   ScrollReveal({
     distance: "100px",
     duration: 2000,
-    delay: 200
+    delay: 200,
+    reset: false
   });
 
-  // Revealing sections with different origins
   ScrollReveal().reveal(".header a, .profile-photo, .about-content, .education", {
     origin: "left"
   });
@@ -66,49 +58,55 @@ $(document).ready(function() {
     origin: "bottom"
   });
 
-  // Contact form to Google Sheets
-  const scriptURL = 'https://docs.google.com/spreadsheets/d/1UP7BFU93n5uI3jbYgOrQP-ZSSlezbDXMEA6J95mpzMw/edit?usp=sharing';
-  const form = document.forms['submitToGoogleSheet'];
+  // Contact Form Submission (Web3Forms OR Google Sheets)
+  const form = document.querySelector("form");
   const msg = document.getElementById("msg");
 
-  form.addEventListener('submit', e => {
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
-    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+
+    // If you're using Web3Forms (as in your HTML), skip this block.
+    // Below is just a fallback in case you want to switch to Google Sheets
+    // You'll need a script endpoint (like from Apps Script web app)
+
+    // Replace with your actual Google Sheets script URL
+    const scriptURL = 'https://script.google.com/macros/s/YOUR_DEPLOYED_SCRIPT_ID/exec';
+
+    fetch(scriptURL, {
+      method: 'POST',
+      body: new FormData(form)
+    })
       .then(response => {
-        msg.innerHTML = "Message sent successfully";
-        setTimeout(function () {
-          msg.innerHTML = "";
-        }, 5000);
+        msg.innerHTML = "Message sent successfully!";
+        setTimeout(() => msg.innerHTML = "", 5000);
         form.reset();
       })
-      .catch(error => console.error('Error!', error.message));
+      .catch(error => {
+        msg.innerHTML = "Something went wrong. Try again!";
+        console.error("Error!", error.message);
+      });
   });
 
 });
 
-// Function to update active section
+// Update active link based on scroll position
 function updateActiveSection() {
   var scrollPosition = $(window).scrollTop();
 
-  // Checking if scroll position is at the top of the page
   if (scrollPosition === 0) {
     $(".header ul li a").removeClass("active");
     $(".header ul li a[href='#home']").addClass("active");
     return;
   }
 
-  // Iterate through each section and update the active class in the header
-  $("section").each(function() {
-    var target = $(this).attr("id");
-    var offset = $(this).offset().top;
+  $("section, .FirstElement").each(function () {
+    var id = $(this).attr("id");
+    var offset = $(this).offset().top - 80;
     var height = $(this).outerHeight();
 
-    if (
-      scrollPosition >= offset - 40 &&
-      scrollPosition < offset + height - 40
-    ) {
+    if (scrollPosition >= offset && scrollPosition < offset + height) {
       $(".header ul li a").removeClass("active");
-      $(".header ul li a[href='#" + target + "']").addClass("active");
+      $(".header ul li a[href='#" + id + "']").addClass("active");
     }
   });
 }
