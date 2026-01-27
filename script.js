@@ -58,34 +58,54 @@ $(document).ready(function () {
     origin: "bottom"
   });
 
-  // Contact Form Submission (Web3Forms OR Google Sheets)
+  // Contact Form Submission (Web3Forms)
   const form = document.querySelector("form");
   const msg = document.getElementById("msg");
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    // If you're using Web3Forms (as in your HTML), skip this block.
-    // Below is just a fallback in case you want to switch to Google Sheets
-    // You'll need a script endpoint (like from Apps Script web app)
+      // Show loading state
+      const submitBtn = form.querySelector(".submit-btn");
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = "Sending...";
+      submitBtn.disabled = true;
 
-    // Replace with your actual Google Sheets script URL
-    const scriptURL = 'https://script.google.com/macros/s/YOUR_DEPLOYED_SCRIPT_ID/exec';
-
-    fetch(scriptURL, {
-      method: 'POST',
-      body: new FormData(form)
-    })
-      .then(response => {
-        msg.innerHTML = "Message sent successfully!";
-        setTimeout(() => msg.innerHTML = "", 5000);
-        form.reset();
+      // Web3Forms will handle the submission
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
       })
-      .catch(error => {
-        msg.innerHTML = "Something went wrong. Try again!";
-        console.error("Error!", error.message);
-      });
-  });
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            msg.innerHTML = "✓ Message sent successfully! I'll get back to you soon.";
+            msg.style.color = "#4ade80";
+            form.reset();
+          } else {
+            msg.innerHTML = "✗ Something went wrong. Please try again.";
+            msg.style.color = "#ef4444";
+          }
+        })
+        .catch(error => {
+          msg.innerHTML = "✗ Network error. Please try again.";
+          msg.style.color = "#ef4444";
+          console.error("Error!", error.message);
+        })
+        .finally(() => {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+          setTimeout(() => {
+            msg.innerHTML = "";
+            msg.style.color = "#fed700";
+          }, 5000);
+        });
+    });
+  }
 
 });
 
