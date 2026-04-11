@@ -335,10 +335,49 @@ img {
   margin-bottom: 12px;
 }
 
+.about-skills h5 {
+  font-size: 18px;
+  color: #06b6d4;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 .about-skills ul li {
-  border-bottom: 1px dashed #555;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.05), rgba(6, 182, 212, 0.02));
+  border-left: 4px solid #06b6d4;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.about-skills ul li:hover {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.12), rgba(6, 182, 212, 0.05));
+  transform: translateX(8px);
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.15);
+  border-left-color: #0891b2;
+}
+
+.about-skills strong {
+  color: #06b6d4;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  min-width: 140px;
+  padding-right: 15px;
+}
+
+.about-skills span {
+  color: #d0d0d0;
+  font-weight: 500;
+  text-align: right;
+  flex: 1;
+  font-size: 14px;
 }
 
 /* ================= Education & Internship ================= */
