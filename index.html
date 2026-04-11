@@ -19,6 +19,11 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+  <!-- Google Fonts - Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
 
@@ -57,20 +62,21 @@
   <div class="profile-text">
     <h5>Hello, I'm</h5>
     <h1>Bardawal Bihari</h1>
-    <h3 style="margin-top: 10px; font-size: 1.2em; color: #6c63ff;">AI/ML Engineer | GenAI & Data Systems Specialist</h3>
+    <h3 style="margin-top: 10px; font-size: 1.2em; color: #0ea5e9;">AI/ML Engineer | GenAI & Data Systems Specialist</h3>
     <p style="margin-top: 15px;">
       Building scalable AI systems that solve real-world problems. Experienced in LLM evaluation, RAG pipelines, and production-grade machine learning. Currently exploring opportunities in AI/ML engineering.
     </p>
 
     <div class="btn-group">
-      <a href="files/Bardawal_Bihari_Resume.pdf" class="btn active">Download Resume</a>
+      <a href="files/Bardawal_Bihari_Resume.pdf" class="btn">Download Resume</a>
       <a href="#about" class="btn">Learn More</a>
     </div>
 
     <div class="social">
-      <a href="mailto:bardawal5555@gmail.com"><i class="fa fa-envelope"></i></a>
-      <a href="https://github.com/bardawalbihari"><i class="fa-brands fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/bardawalbihari55/"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="mailto:bardawal5555@gmail.com" class="social-mail"><i class="fa fa-envelope"></i></a>
+      <a href="https://github.com/bardawalbihari" target="_blank" rel="noopener noreferrer" class="social-github"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/bardawalbihari55/" target="_blank" rel="noopener noreferrer" class="social-linkedin"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://leetcode.com/u/bardawalbihari/" target="_blank" rel="noopener noreferrer" title="LeetCode Profile" class="social-leetcode"><i class="fa-solid fa-code"></i></a>
     </div>
   </div>
 </section>
@@ -140,6 +146,16 @@
         <h4>Tools</h4>
         <p>Git, GitHub, Jupyter Notebook, Azure OpenAI, DeepEval</p>
       </div>
+      <div class="skill-card">
+        <i class="fa-solid fa-network-wired"></i>
+        <h4>System Design & APIs</h4>
+        <p>REST APIs, Microservices, API Design, Design Patterns, SOLID Principles</p>
+      </div>
+      <div class="skill-card">
+        <i class="fa-solid fa-gears"></i>
+        <h4>Best Practices</h4>
+        <p>Unit Testing, CI/CD, Code Quality, Debugging, Documentation</p>
+      </div>
     </div>
   </div>
 </section>
@@ -162,13 +178,13 @@
 
       <div class="timeline-item">
         <h4>Data Science Intern – PowerSchool India</h4>
-        <p>Jul 2025 – Present</p>
-        <ul style="margin: 10px 0; padding-left: 20px;">
-          <li>Designed and implemented an LLM Evaluation Pipeline to assess responses across accuracy, relevance, hallucination, and reliability metrics; benchmarked multiple models and optimized performance by adopting Snowflake Cortex (Claude 3.5), achieving 40% lower latency with improved response consistency compared to general-purpose GPT models.</li>
-          <li>Improved semantic search, resolved UI issues, and implemented backend API changes during the migration of the NLP-to-SQL platform from Snowflake to AWS, enabling secure natural language analytics across datasets representing 60M+ students globally.</li>
-          <li>Owned ETL workflows and data cleanup pipelines using Python, SQL, Snowflake, and Azure, standardizing datasets for the PowerSchool Essentials migration, reducing batch runtime from 30 to 5 minutes.</li>
-          <li>Built a RAG-based AI Help Assistant using hybrid search (keyword + semantic retrieval) with Azure OpenAI text-embedding-3-large for vector embeddings and GPT-4o for response generation.</li>
-          <li>Identified and resolved a prompt injection vulnerability in a production GenAI application by implementing regex-based input validation and hardening system prompts.</li>
+        <p class="internship-date">Jul 2025 – Present</p>
+        <ul class="achievement-list">
+          <li><span class="achievement-icon">✓</span>Designed and implemented an LLM Evaluation Pipeline to assess responses across accuracy, relevance, hallucination, and reliability metrics; benchmarked multiple models and optimized performance by adopting Snowflake Cortex (Claude 3.5), achieving 40% lower latency with improved response consistency compared to general-purpose GPT models.</li>
+          <li><span class="achievement-icon">✓</span>Improved semantic search, resolved UI issues, and implemented backend API changes during the migration of the NLP-to-SQL platform from Snowflake to AWS, enabling secure natural language analytics across datasets representing 60M+ students globally.</li>
+          <li><span class="achievement-icon">✓</span>Owned ETL workflows and data cleanup pipelines using Python, SQL, Snowflake, and Azure, standardizing datasets for the PowerSchool Essentials migration, reducing batch runtime from 30 to 5 minutes.</li>
+          <li><span class="achievement-icon">✓</span>Built a RAG-based AI Help Assistant using hybrid search (keyword + semantic retrieval) with Azure OpenAI text-embedding-3-large for vector embeddings and GPT-4o for response generation.</li>
+          <li><span class="achievement-icon">✓</span>Identified and resolved a prompt injection vulnerability in a production GenAI application by implementing regex-based input validation and hardening system prompts.</li>
         </ul>
       </div>
     </div>
@@ -178,7 +194,10 @@
 <!---------------- Projects ---------------->
 <section class="project-content" id="projects">
   <div class="container">
-    <h4>Projects</h4>
+    <div class="section-title">
+      <h3 class="title">Projects</h3>
+      <p class="subtitle">Featured Work & Achievements</p>
+    </div>
 
     <div class="projects">
       <div class="project">
@@ -195,8 +214,12 @@
           <span>LLMs</span>
           <span>NLP</span>
           <span>Transformers</span>
+          <span>BERT</span>
+          <span>PyTorch</span>
+          <span>Fine-tuning</span>
           <span>Gradio</span>
           <span>React</span>
+          <span>Python</span>
         </div>
       </div>
 
@@ -213,7 +236,12 @@
           <span>BERT</span>
           <span>PPO</span>
           <span>Reinforcement Learning</span>
+          <span>PyTorch</span>
+          <span>Actor-Critic</span>
           <span>NLP</span>
+          <span>Deep Learning</span>
+          <span>Python</span>
+          <span>Text Classification</span>
         </div>
       </div>
     </div>
@@ -247,6 +275,15 @@
 <footer class="footer">
   <small>© 2025 Bardawal Bihari | AI & ML Engineer</small>
 </footer>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- ScrollReveal -->
+<script src="https://unpkg.com/scrollreveal@4.1.1/dist/scrollreveal.min.js"></script>
+
+<!-- Main Script -->
+<script src="script.js"></script>
 
 <script>
   document.querySelector('.menu_icon').addEventListener('click', () => {
