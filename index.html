@@ -274,7 +274,8 @@
         <input type="text" name="name" placeholder="Your Name" required>
       </div>
       <div class="form-group">
-        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="email" name="email" placeholder="Your Email (Gmail only)" pattern="[a-zA-Z0-9._%+-]+@gmail\.com$" title="Please enter a valid Gmail address (example@gmail.com)" required>
+        <small id="email-error" class="email-error" style="display:none; color:#ef4444; font-size:12px; margin-top:4px;">Only Gmail addresses (@gmail.com) are accepted</small>
       </div>
       <div class="form-group">
         <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
