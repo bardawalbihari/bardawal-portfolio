@@ -19,12 +19,12 @@ $(document).ready(function () {
 
     if ($(target).hasClass("active-section")) return;
 
-    var offset = $(target).offset().top - 80;
+    var offset = $(target).offset().top - 75;
     if (offset < 0) offset = 0;
 
-    $("html, body").animate({
+    $('html, body').stop(true, false).animate({
       scrollTop: offset
-    }, 500);
+    }, 600);
 
     $(".header ul li a").removeClass("active");
     $(".header ul li a[href='" + target + "']").addClass("active");

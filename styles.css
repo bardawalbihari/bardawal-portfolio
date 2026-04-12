@@ -136,7 +136,7 @@ img {
   left: 0;
   width: 0;
   height: 2px;
-  background: #0ea5e9;
+  background: #d4af37;
   transition: 0.3s;
 }
 
@@ -165,8 +165,9 @@ img {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 70px 0 40px;
+  padding: 60px 0 35px;
   flex-wrap: wrap;
+  gap: 30px;
   scroll-margin-top: 100px;
 }
 
@@ -198,7 +199,7 @@ img {
 
 .profile-text {
   max-width: 750px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .profile-text h5 {
@@ -331,6 +332,7 @@ img {
 
 .skills-content {
   padding: 40px 0;
+  scroll-margin-top: 75px;
 }
 
 .skills-grid {
@@ -438,6 +440,7 @@ img {
 
 .about-area {
   padding: 40px 0;
+  scroll-margin-top: 75px;
 }
 
 .about-area .container > div,
@@ -460,7 +463,7 @@ img {
 .about-content h4 {
   font-size: 36px;
   color: #0c4a6e;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
   letter-spacing: -0.3px;
@@ -482,7 +485,7 @@ img {
 .about-skills h5 {
   font-size: 18px;
   color: #0ea5e9;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   font-family: 'Poppins', sans-serif;
@@ -530,6 +533,7 @@ img {
 
 .education-content {
   padding: 40px 0;
+  scroll-margin-top: 75px;
 }
 
 .education-content .row,
@@ -546,10 +550,10 @@ img {
 }
 
 .title {
-  font-size: 40px;
+  font-size: 42px;
   font-weight: 800;
   color: #0ea5e9;
-  margin-bottom: 30px;
+  margin-bottom: 8px;
   font-family: 'Poppins', sans-serif;
   letter-spacing: -0.3px;
 }
@@ -653,6 +657,7 @@ img {
 
 .project-content {
   padding: 50px 0;
+  scroll-margin-top: 75px;
 }
 
 .projects {
@@ -765,6 +770,7 @@ img {
 
 .contact-content {
   padding: 40px 0;
+  scroll-margin-top: 75px;
 }
 
 .contact-title h4 {
@@ -777,35 +783,34 @@ img {
 
 .section-title {
   text-align: center;
-  margin-bottom: 35px;
+  margin-bottom: 28px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .section-title:hover {
-  transform: scale(1.05);
+  transform: none;
 }
 
 .section-title .title {
-  margin-bottom: 10px;
-  transition: all 0.4s ease;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
   position: relative;
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
   letter-spacing: -0.3px;
+  color: #0ea5e9;
+  font-size: 42px;
 }
 
 .section-title:hover .title {
-  color: #0ea5e9;
-  text-shadow: 0 0 10px rgba(14, 165, 233, 0.6),
-               0 0 20px rgba(14, 165, 233, 0.4),
-               0 0 30px rgba(14, 165, 233, 0.2);
-  letter-spacing: 1px;
-  animation: titleGlow 0.6s ease;
+  color: #0284c7;
+  text-shadow: none;
+  letter-spacing: -0.3px;
 }
 
 .subtitle {
-  font-size: 16px;
+  font-size: 15px;
   color: #666;
   font-weight: 500;
   transition: all 0.3s ease;
@@ -814,8 +819,8 @@ img {
 }
 
 .section-title:hover .subtitle {
-  color: #0ea5e9;
-  opacity: 0.8;
+  color: #777;
+  opacity: 1;
 }
 
 .contact {
