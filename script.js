@@ -12,21 +12,22 @@ $(document).ready(function () {
   });
 
   // Smooth scrolling and active class
-  $(".header ul li a").on("click", function (e) {
+  $(".header .logo, .header ul li a").on("click", function (e) {
     e.preventDefault();
 
     var target = $(this).attr("href");
 
     if ($(target).hasClass("active-section")) return;
 
-    var offset = (target === "#home") ? 0 : $(target).offset().top - 60;
+    var offset = $(target).offset().top - 80;
+    if (offset < 0) offset = 0;
 
     $("html, body").animate({
       scrollTop: offset
     }, 500);
 
     $(".header ul li a").removeClass("active");
-    $(this).addClass("active");
+    $(".header ul li a[href='" + target + "']").addClass("active");
 
     // Collapse mobile navbar if open
     $(".navbar").removeClass("active");
@@ -97,6 +98,8 @@ $(document).ready(function () {
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      e.stopPropagation();
+      e.returnValue = false;
 
       // Show loading state
       const submitBtn = form.querySelector(".submit-btn");
@@ -104,13 +107,18 @@ $(document).ready(function () {
       submitBtn.textContent = "Sending...";
       submitBtn.disabled = true;
 
+      // Create FormData and remove redirect to prevent Web3Forms redirect
+      const formData = new FormData(form);
+      formData.delete('redirect');
+
       // Web3Forms will handle the submission
       fetch(form.action, {
         method: 'POST',
-        body: new FormData(form),
+        body: formData,
         headers: {
           'Accept': 'application/json'
-        }
+        },
+        mode: 'cors'
       })
         .then(response => response.json())
         .then(data => {
@@ -118,14 +126,17 @@ $(document).ready(function () {
             msg.innerHTML = "✓ Message sent successfully! I'll get back to you soon.";
             msg.style.color = "#4ade80";
             form.reset();
+            showPopup("Message Sent", "Thank you! Your message has been delivered successfully.");
           } else {
             msg.innerHTML = "✗ Something went wrong. Please try again.";
             msg.style.color = "#ef4444";
+            showPopup("Submission Failed", "Something went wrong. Please try again later.");
           }
         })
         .catch(error => {
           msg.innerHTML = "✗ Network error. Please try again.";
           msg.style.color = "#ef4444";
+          showPopup("Network Error", "Unable to send your message. Please check your connection.");
           console.error("Error!", error.message);
         })
         .finally(() => {
@@ -137,6 +148,33 @@ $(document).ready(function () {
           }, 5000);
         });
     });
+
+    const popup = document.getElementById("contact-popup");
+    const popupTitle = document.getElementById("popup-title");
+    const popupText = document.getElementById("popup-text");
+    const closeButtons = document.querySelectorAll(".close-popup, .popup-close-btn");
+
+    function showPopup(title, message) {
+      if (popupTitle) popupTitle.textContent = title;
+      if (popupText) popupText.textContent = message;
+      if (popup) popup.classList.add("show");
+    }
+
+    function hidePopup() {
+      if (popup) popup.classList.remove("show");
+    }
+
+    closeButtons.forEach((btn) => {
+      btn.addEventListener("click", hidePopup);
+    });
+
+    if (popup) {
+      popup.addEventListener("click", function (e) {
+        if (e.target === popup) {
+          hidePopup();
+        }
+      });
+    }
   }
 
 });

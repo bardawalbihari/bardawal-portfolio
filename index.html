@@ -50,7 +50,7 @@
 <header class="header-area">
   <div class="container header">
     <a href="#home" class="logo">
-      <i class="fa-solid fa-brain"></i>
+      <i class="fa-solid fa-microchip"></i>
       <span>Bardawal</span>
     </a>
     <ul class="navbar">
@@ -269,6 +269,7 @@
     </div>
     <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
       <input type="hidden" name="access_key" value="d46da4c5-d24e-420a-9cd2-af6149ec6ddf">
+      <input type="hidden" name="redirect" value="https://bardawalbihari.github.io/bardawal-portfolio/">
       <div class="form-group">
         <input type="text" name="name" placeholder="Your Name" required>
       </div>
@@ -283,6 +284,15 @@
     <div id="msg" class="form-message"></div>
   </div>
 </section>
+
+<div id="contact-popup" class="contact-popup">
+  <div class="contact-popup-inner">
+    <span class="close-popup">&times;</span>
+    <h4 id="popup-title">Message Sent</h4>
+    <p id="popup-text">Thank you for reaching out. Your message has been delivered.</p>
+    <button type="button" class="popup-close-btn">Close</button>
+  </div>
+</div>
 
 <footer class="footer">
   <small>© 2025 Bardawal Bihari | AI & ML Engineer</small>
