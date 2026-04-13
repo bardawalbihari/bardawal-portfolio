@@ -29,9 +29,9 @@ Welcome to my AI/ML portfolio website! This is a responsive, modern portfolio sh
 ## 🛠️ Technical Skills
 
 **Languages:** Python, SQL, Java  
-**AI/ML:** Machine Learning, NLP, Large Language Models (LLMs), RAG, Prompt Engineering  
-**Libraries/Frameworks:** Pandas, NumPy, Scikit-learn, FastAPI, Flask, Hugging Face, PyTorch  
-**Data & Cloud:** ETL, Data Pipelines, Snowflake, Azure, AWS, Docker  
+**AI/ML:** Machine Learning, NLP, Large Language Models (LLMs), RAG, Prompt Engineering, LLM Evaluation  
+**Libraries/Frameworks:** Pandas, NumPy, Scikit-learn, PyTorch, Hugging Face, FastAPI, Flask  
+**Data & Cloud:** ETL, Data Pipelines, Snowflake, Snowflake Cortex, Azure, AWS, Docker  
 **Tools:** Git, GitHub, Jupyter Notebook, Azure OpenAI, DeepEval  
 
 ## 📂 Projects
