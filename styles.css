@@ -766,11 +766,52 @@ img {
   transform: translateY(-2px);
 }
 
-/* ================= Contact ================= */
-
-.contact-content {
-  padding: 40px 0;
+.achievements-content {
+  padding: 40px 0 30px;
   scroll-margin-top: 75px;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+.achievement-item {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.06), rgba(14, 165, 233, 0.02));
+  border: 1.5px solid rgba(14, 165, 233, 0.2);
+  border-radius: 14px;
+  padding: 22px 18px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.achievement-item:hover {
+  transform: translateY(-5px);
+  border-color: #0ea5e9;
+  box-shadow: 0 12px 24px rgba(14, 165, 233, 0.12);
+}
+
+.achievement-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.achievement-item p {
+  color: #374151;
+  line-height: 1.7;
+  font-size: 14px;
 }
 
 .contact-title h4 {
